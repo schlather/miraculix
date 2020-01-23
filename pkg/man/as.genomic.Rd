@@ -20,18 +20,18 @@ genomicmatrix(snps, individuals, file.type,
   \item{individuals}{integer. See Details} 
   \item{file.type}{if \code{object} is a filename then the precise
     coding of preceding headers, preceding columns, and the coding of
-    the data can be very different. Instead of given all the arguments
-    \code{coding} \ldots \code{leadingcolumns}, the \code{file.type}
+    the data can be very different. Instead of giving all the arguments
+    \code{coding}, \ldots, \code{leadingcolumns}, the \code{file.type}
     can be given:
     \describe{  
-      \item{\sQuote{beagle}}{E.g. \code{coding="AB? "}}
-      \item{\sQuote{plink}}{E.g. \code{coding="AB? "}}
-      \item{\sQuote{plink2}}{E.g. \code{coding="12? ",}}
-      \item{\sQuote{plinkbinary}}{E.g. \code{coding="12345"}}
+      \item{\sQuote{beagle}}{i.e.\code{coding="AB? "}}
+      \item{\sQuote{plink}}{i.e. \code{coding="AB? "}}
+      \item{\sQuote{plink2}}{i.e. \code{coding="12? ",}}
+      \item{\sQuote{plinkbinary}}{i.e. \code{coding="12345"}}
     }    
   }
   \item{coding}{if \code{object} is a filename then \code{coding} is
-    string of 4 or 5 characters.
+    a string of 4 or 5 characters.
     
     In case of 5 characters, a file with genomic data is assumed and
     the characters have the following meaning:
@@ -55,18 +55,19 @@ genomicmatrix(snps, individuals, file.type,
   \item{header}{integer. If \code{object} is a filename then 
     \code{header} has the following meaning
     \describe{
-      \item{positive \code{header}}{\code{header} gives the number of
+      \item{positive \code{header}: }{\code{header} gives the number of
 	preceding lines in the file that will be ignored. An ASCII file
 	is assumed in this case.
       }
-      \item{negative \code{header}}{a binary files assumed and the
+      \item{negative \code{header}: }{a binary file is assumed and
 	\eqn{-}\code{header} gives
 	the number of preceding characters that will be jumped.
       }
     }
   }
   \item{IndividualsPerColumn}{\ipc}
-  \item{DoubledIndividuals}{\dindiv  If \code{object} is a filename, coding has 4 characters (i.e. it is a haplo file)}
+  \item{DoubledIndividuals}{\dindiv  If \code{object} is a filename,
+    coding has 4 characters (i.e. it is a haplo file)} 
   \item{leadingcolumns}{Integer. If \code{object} is a filename then
     \code{leadingcolumns} gives the number of first columns in the file
     that are ignored.
@@ -83,7 +84,7 @@ genomicmatrix(snps, individuals, file.type,
 \details{
   \command{genomicmatrix} creates a
   compressed matrix according to the coding scheme given by
-  \code{RFoptions()$genetics$snpcoding}.
+  \code{\link{RFoptions}()$genetics$snpcoding}.
 
   In case \code{snps} is a string, i.e., a file name, the extension of
   the file name predefines the \code{file.type}:
@@ -99,8 +100,8 @@ genomicmatrix(snps, individuals, file.type,
   The definition can be overwritten by \code{file.type}. The latter
   can be overwritten by all other options (except \code{individuals}).
   
-  If \code{individuals} given, \command{genomicmatrix} creates a
-  \code{snps}\eqn{\times}\code{individuals} compressed data filled
+  If \code{individuals} is given, \command{genomicmatrix} creates a
+  \code{snps} \eqn{\times} \code{individuals} compressed data matrix filled
   with zeros. The matrix can be modified afterwards by
   \command{\link{fillGeno}}.
 
@@ -148,7 +149,6 @@ if (interactive() && !file.exists(paste0(file, ".bgl"))) {
   Print(object.size(G), object.size(g)) ## g needs much more memory
   file.remove(f)
 }
-
 
 }
 

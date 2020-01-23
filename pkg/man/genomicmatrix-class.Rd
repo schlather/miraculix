@@ -26,17 +26,18 @@
   \item{x,object}{a compressed (SNP x Individuals) matrix}
   \item{\ldots}{see \command{\link[base]{print}},
     \command{\link[utils]{str}} for options;
-    see  Details for \code{as.matrix}.
+    see section \sQuote{Details} for \code{as.matrix}.
   }
 }
 
 \details{
-  The genomic matrix having only the values 0,1,2, genomicmatrix uses a
-  two  bit compressed storing mode in case
+  Since the genomic matrix has only the values 0,1,2,
+  \code{genomicmatrix} uses a
+  two bit compressed storing mode in case
   \code{RFoptions(snpcoding = TwoBit)} or
-  \code{snpcoding = Shuffle} or  \code{snpcoding = Shuffle256},
+  \code{snpcoding = Shuffle}, for instance,
   see \command{\link{RFoptions}} for
-  more information.
+  more information and further options.
 
   The options \code{\ldots} for \command{as.matrix} are
   \describe{

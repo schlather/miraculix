@@ -12,7 +12,7 @@
  Scan Statistics
 }
 \description{
- The function has Implemented the scan statistics method of Kabluchko
+ The function implements the scan statistics method of Kabluchko
  and Spodarev (2009),  Theorem 3.1.
 }
 \usage{

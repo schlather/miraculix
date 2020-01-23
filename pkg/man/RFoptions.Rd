@@ -21,10 +21,8 @@
 \title{Setting control arguments}
 \alias{SNPCODING_NAMES}
 \description{
- \command{\link{RFoptions}} sets and returns control arguments for the analysis
- and the simulation of random fields.
- See \code{\link[RandomFieldsUtils]{RFoptions}} for the
- definition of \code{RFoptions(..., no.readonly = TRUE)}.
+ \command{\link{RFoptions}} sets and returns control arguments for
+ diverse packages (\pkg{miraculix}, \pkg{RandomFields}).
 
  \command{\link{RFoptions}} should not be used within parallelizing R
  commands such as \command{\link[parallel]{mclapply}}
@@ -41,13 +39,13 @@
 % }
 %}
 \details{
-  Note that this function can only be used after
-  \code{library(RandomFieldsUtils)}
-  has been made available explicitely.
+%  Note that this function can only be used after
+%  \code{library(RandomFieldsUtils)} has been made available explicitely.
 
   The specific parameters for \pkg{miraculix} are the following.
-  See \code{\link[RandomFieldsUtils]{RFoptions}} for further options for
-  \command{RFoptions}.
+  See \code{\link[RandomFieldsUtils]{RFoptions}} in
+  \pkg{RandomFieldsUtils}
+  for further options.
   
   \describe{
     \item{any2bit}{ logical.
@@ -55,14 +53,14 @@
       is used among
       \itemize{
 	\item{\code{TwoBit} (no SIMD needed)}
-	\item{\code{Multiply} (SSE2 needed)}
 	\item{\code{Packed} (SSE2 needed)}
 	\item{\code{Shuffle} (SSSE3 needed)}
 	\item{\code{Shuffle256} (AVX2 needed)}
       }
       whatever is available.
       
-      Default : \code{FALSE}
+      Default : \code{FALSE}. This value might change to \code{TRUE} in
+      future. 
     }
       
     \item{centered}{logical or numerical.
@@ -71,7 +69,7 @@
       see \code{\link{relationshipMatrix}} for the \eqn{P} matrix.
 
       If numeric, then the length of this vector must equal the number
-      of SNPs per individual. The this vector is substracted for each
+      of SNPs per individual. Then this vector is substracted for each
       individual. 
       Furthermore, \code{normalized} is FALSE.
       As the size of \code{centered} can be large, this vector is never
@@ -89,7 +87,7 @@
 %      Default : 
     }
 
-    \item{digits}{scalar.
+   \item{digits}{OBSOLETE. scalar.
       If \code{digits} is negative no rounding is performed.
       Else the matrix \eqn{P} when calculating the relationsship matrix
       \eqn{(M-P)^T(M-P)} is rounded to the given number of absolute (not
@@ -101,7 +99,7 @@
  
     \item{normalized}{logical.
       If \code{TRUE} the relationship matrix is normalized by
-      \eqn{\sigma^s}, see \code{\link{relationshipMatrix}}.
+      \eqn{\sigma^2}, see \code{\link{relationshipMatrix}}.
       
 
       Its value is set to the value of \code{centered} whenever
@@ -142,13 +140,13 @@
 
       In case of the package \pkg{MoPBS} or if interest is in the 2 bit methods
       only, use the constants \code{FirstMoBPSmethod} and
-      \code{LastGenuineMethod}.
+      \code{LastMoBPSmethod}.
 
       In case the names of the method is needed, use 
       \code{SNPCODING_NAMES[snp_coding + 1]}.
       
       
-      Default : \code{"shuffle"}
+      Default : \code{Shuffle}
     }
 
     

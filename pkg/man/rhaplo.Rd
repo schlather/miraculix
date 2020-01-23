@@ -4,7 +4,7 @@
   Generation of Random Haplotype Matrix
 }
 \description{
-  According to given frequencies a random haplotype matrix is generated.
+  A random haplotype matrix is generated according to some given frequencies.
 }
 \usage{
 rhaplo(freq, indiv, loci, freq2, file,
@@ -17,7 +17,7 @@ rhaplo(freq, indiv, loci, freq2, file,
     assumed and \code{loci} must be given.}
   \item{indiv}{number of individuals}
   \item{loci}{if not given, the number of loci equals the length of
-    \code{freq}, otherwise \code{freq} is recycled to reach the give
+    \code{freq}, otherwise \code{freq} is recycled to reach the given
     nnumber of loci}
   \item{freq2}{optional. Frequencies for the second chromosome.
     The vector \code{freq2} may have a different length than \code{freq}
@@ -26,18 +26,18 @@ rhaplo(freq, indiv, loci, freq2, file,
     \code{NA}s. Then, the value of the second chromosome at this locus is
     taken over from the first chromosome.
   }
-  \item{file,file.type}{string. If given, a file is written that mimics
+  \item{file, file.type}{string. If given, a file is written that mimics
     the \code{file.type} style. An extension is appended to \code{file}
-    according to the\code{file.type} style.
+    according to the \code{file.type} style.
   }
   \item{debugging}{logical. Mainly for internal purposes.
-    If \code{TRUE} the genomic matrix appended as an attribute
+    If \code{TRUE} the genomic matrix is appended as an attribute
     to the return value. 
   }
 }
  
 \value{
-  if \code{(missing(file))} an object of class genomicmatrix,
+  If \code{missing(file)} an object of class genomicmatrix is returned,
   else the file name with appended extension according to \code{file.type}
 }
 

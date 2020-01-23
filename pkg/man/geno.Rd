@@ -11,7 +11,7 @@
 \command{zeroNthGeno} writes zeros into selected rows of a coded SNP matrix
 %
 \command{fillGeno} allows to fill (or replace) colums of a compressed
-  \eqn{snps \times indiv} matrix.
+  (snps \eqn{\times} indiv) matrix.
 }
 \usage{
 fillGeno(SNPxIndiv, indiv, values, IndividualsPerColumn=TRUE,
@@ -22,11 +22,11 @@ zeroNthGeno(SNPxIndiv, snps)
 
    
 \arguments{
-  \item{SNPxIndiv}{a compressed SNP (genotype) vector or matrix
+  \item{SNPxIndiv}{a compressed SNP (genotype) vector or matrix,
     obtained from \command{genomicmatrix} or \command{haplomatrix}
   }
   \item{indiv}{integer vector. It gives
-    the columns of the \eqn{SNP\times Indiv} matrix
+    the columns of the (SNP \eqn{\times} Indiv) matrix
     that has to be filled with \code{values}
   }  
   \item{values}{coded or uncoded vector or matrix of haplotype or

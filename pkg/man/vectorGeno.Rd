@@ -27,7 +27,8 @@ genoVector(SNPxIndiv, V, do.centering=FALSE)
     \code{Multiply}, 
     or \code{TwoBit}.
     If \code{TRUE} the matrix is  decoded and
-    standard matrix multiplication performed afterwards. This is faster than
+    standard matrix multiplication performed afterwards.
+    This is currently faster than
     to operate on the coded version (\code{decode}=FALSE), but takes
     (considerably) more memory.
   }
@@ -37,14 +38,14 @@ genoVector(SNPxIndiv, V, do.centering=FALSE)
 
 
 \details{
-  Let $G$ be the (original) \eqn{SNP\times Indiv} matrix.
+  Let \eqn{G} be a (SNP\eqn{\times} Indiv) matrix.
   \command{vectorGeno} and \command{genoVector} return \eqn{VG} and
   \eqn{GV}, respectively.
 }
 
 \value{
-  vector of length \code{nrow(CG_SNPxIndiv)} and
-  \code{ncol(CG_SNPxIndiv)}
+  vector of length \code{nrow(SNPxIndiv)} and
+  \code{ncol(SNPxIndiv)}
   for \command{vectorGeno} and \command{genoVector}, respectively.
 }
 

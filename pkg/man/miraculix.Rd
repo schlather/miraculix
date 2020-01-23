@@ -4,8 +4,7 @@
 \docType{package}
 \title{MIRACULIX}
 \description{
-  various functions used in quantitative genetics within the animal
-  breeding group of the University of Goettingen
+  Various functions used in quantitative genetics
 }
 
 \details{
@@ -21,21 +20,17 @@
     
     
     \item{Very fast calculation of genomic relationship matrix for
-      0-1-coded haplotypes and 0-1-2-coded genotypes; Matrix must be in
+      0-1-coded haplotypes and 0-1-2-coded genotypes; Matrix should be in
       the RAM}
     \enumerate{
       \item{\command{\link{relationshipMatrix}}} fast calculation of \eqn{(M-P) (M-P)^T /
-	\sigma^2 } (Martin)
-      \item{\command{\link{vectorGeno}}} etc. fast calculation of 012 matrix
-      with an arbitrary vector
-      \item{\command{\link{matrixvector012}}} etc. fast calculation of an
-      arbitrary  matrix with a 012 vector
+	\sigma^2 }
+      \item{\command{\link{crossprodx}}} fast implementation of
+      \command{\link[base]{crossprod}} for SNP matrices
     }
 
     
-    \item{fast calculation of genomic relationship matrix for
-      arbitrary coding; direct reading from the file, i.e. the matrix
-      can be much larger than storage memory available in R
+    \item{further commands
     }
     \enumerate{
       \item{\command{\link{haplomatrix}}}
@@ -50,9 +45,7 @@
       creating a compressed matrix and filling it with uncompressed
       data. These two functions make sense if the SNP matrix is too
       large to be kept in the RAM. 
-      \item{\command{relationshipMatrix}} very fast calculation of
-      the relationship matrix from compressed data
-      \item{\command{solveRelMat}}
+       \item{\command{solveRelMat}}
       calculates the inverse of a relatioship matrix and also
       solves equations 
       \item{\command{allele_freq}}
@@ -61,7 +54,11 @@
       \item{\command{genoVector}, \command{vectorGeno}} multiplication
       of vector onto a compressed SNP matrix from the right and left,
       respectively.
-    }
+     \item{\command{\link{vectorGeno}}} etc. fast calculation of 012 matrix
+      with an arbitrary vector
+      \item{\command{\link{matrixvector012}}} etc. fast calculation of an
+      arbitrary  matrix with a 012 vector
+     }
     
     
  %   \item{GBLUP related functions}
@@ -80,7 +77,7 @@
 %      \item{\command{\link{SpecificLines}}} reads only specific lines of a file (made for e.g. PLINK input files with leading ID columns) (Malena)
  %   }
 
-    \item{Functions related to the packaage \pkg{ReKombre} by Torsten
+    \item{Functions related to the packaage \pkg{MoBPs} by Torsten
       Pook.}
     \enumerate{     
       \item{\command{codeOrigins},\command{decodeOrigins}}

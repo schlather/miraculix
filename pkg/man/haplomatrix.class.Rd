@@ -25,8 +25,8 @@
 \arguments{  
   \item{x,object}{a compressed (SNP x Individuals) matrix}
   \item{\ldots}{see \command{\link[base]{print}},
-    \command{\link[utils]{str}} for options;
-    \code{as.matrix} has the following options
+    \command{\link[utils]{str}} for their options.
+    The command \code{as.matrix} has the following options
     \describe{
       \item{\code{indiv}}{vector of integer, indicating individuals to
 	be extracted
@@ -45,10 +45,12 @@
 
 
 \details{
-  The haplo matrix having only the values 0 and 1, haplomatrix uses a
-  one bit compressed storing mode. A haplomatrix can be transformed into
-  a \link[=genomicmatrix-class]{genomicmatrix} in case the coding is
-  \code{RFoptions(snpcoding=Shuffle)} or \code{RFoptions(snpcoding=Shuffle256)}
+  Since the haplo matrix takes only the values 0 and 1,
+  \code{haplomatrix} uses a
+  one bit compressed storing mode. A haplomatrix can quickly be transformed into
+  a \code{\link[=genomicmatrix-class]{genomicmatrix}} (by exactly this command)
+  in case of the default two-bit
+  coding, e.g. \code{RFoptions(snpcoding=Shuffle)}.
 }
 
 \me

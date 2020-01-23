@@ -45,7 +45,7 @@ allele_freq(SNPxIndiv)
 }
 
 \arguments{
-  \item{SNPxIndiv}{\eqn{\{0,1\,2\}}-valued  \eqn{snps \times indiv}
+  \item{SNPxIndiv}{\eqn{\{0,1\,2\}}{0,1,2}-valued (snps \eqn{\times} indiv)
     matrix or the result of \command{\link{genomicmatrix}}.
   }
   \item{...}{see \command{\link{RFoptions}} -- better use
@@ -77,8 +77,8 @@ allele_freq(SNPxIndiv)
   Then, the matrix \eqn{P} equals \eqn{P = p (1,\ldots,1)}.
 
   The constant \eqn{sigma^2} equals
-  \eqn{\sigma^2 = p^T  (1 - p/2)\in[0,\infty)}.
-
+  \eqn{\sigma^2 = p^T  (1 - p/2)}.
+  
   \code{solveRelMat} has a speed and memory advantage in comparison to the
   direct implementation of the above formulae.
 }
@@ -86,21 +86,21 @@ allele_freq(SNPxIndiv)
 
 
 \value{
-  \command{relationsshipMatrix} returns \eqn{Indiv \times Indiv}
+  \command{relationsshipMatrix} returns a (Indiv \eqn{\times} Indiv)
   numerical matrix.
 
   The return value of \command{solveRelMat} depends on \code{betahat}.
   If the latter is \code{NULL}, only the vector \eqn{(A + \tau I)^{-1} v}
   is returned. Else,  a list of 2 elements is returned. First element equals
-  the vector \deqn{(A + \tau I)^{-1} v}, the
-  second element equals \deqn{A(A + \tau I)^{-1} v + \beta}.
+  the vector \deqn{(A + \tau I)^{-1} v,} the
+  second element equals \deqn{A(A + \tau I)^{-1} v + \beta.}
 }
 
 \section{Benchmarks}{
   Computing times for the relationship matrix in comparison to 'crossprod'
   in standard implementation on Intel(R) Core(TM) i7-8550U CPU @
   1.80GHz, R version 3.6.0 (Linux) with \code{indiv = 1000} and
-  \code{snps = 10^6} are:
+  \code{snps = 5e5} are:
 
   Shuffle256    : 48 x faster (AVX2; 16x compressed)\cr
   Packed256     : 36 x faster (AVX2; 16x compressed)\cr
@@ -124,8 +124,9 @@ The following code was used: % library(miraculix)
 \preformatted{
 RFoptions(cores = 1)
 indiv <- 1000
-snps <- 5e5 ## causes sometimes memory allocation problems in R; better use 5e4
-methods <- c(NoSNPcodingR, NoSNPcodingAVX, FirstGenuineMethod:LastGenuineMethod)
+snps <- 5e5 ## may cause memory allocation problems in R; better use 5e4 !!
+methods <- c(NoSNPcodingR, NoSNPcodingAVX,
+             FirstGenuineMethod:LastGenuineMethod)
 M <- matrix(ncol=indiv, sample(0:2, indiv * snps, replace=TRUE))
 for (storageMode in c("integer", "double")){
     storage.mode(M) <- storageMode

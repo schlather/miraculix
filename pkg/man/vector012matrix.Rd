@@ -11,8 +11,9 @@
   For larger matrices (greater than \eqn{25\times 25})
   the functions
   are \eqn{3} to \eqn{10} times faster than the matrix
-  multiplication 
-  \code{\%*\%}.
+  multiplication \code{\%*\%}.
+
+  This function is not based on \code{\link{RFoptions}()$genetics$snpcoding}.
 }
 \usage{
 vector012matrix(v, M)

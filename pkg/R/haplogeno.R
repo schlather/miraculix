@@ -114,11 +114,11 @@ genomicmatrix <- function(snps, individuals, file.type,
     return(snps)
   }
 
-  info <- NULL
-  if (is(snps, HAPLOMATRIX) && !is.character(snps)) {
-    if (is.character(snps)) info <- attr(snps, "information") ## treat as if
+  info <- attr(snps, "information")## treat as if
     ##                                         file name + file.type were given
-    else {
+
+  if (is(snps, HAPLOMATRIX) && !is.character(snps)) {
+    if (!is.character(snps)) {
       if (length(list(match.call())) > 2)
         stop("further arguments may not be given")
       return(haplo2geno(snps))
@@ -183,7 +183,12 @@ genomicmatrix <- function(snps, individuals, file.type,
 
   if (!is.character(snps)) stop("'snps' is expected to be a file name.")
   object <- snps
-  individuals <- snps <- NA
+  
+  if (length(info) == 0) individuals <- snps <- NA
+  else {
+    individuals <- info["individuals"]
+    snps <- info["snps"]
+  }
   if (missing(file.type)) {
     split <- strsplit(object, "\\.")[[1]]
     file.ext <-  c("txt", "bgl", "phased", "tped", "ped", "bed")

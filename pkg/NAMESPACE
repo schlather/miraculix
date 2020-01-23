@@ -1,7 +1,7 @@
 # Description: miraculix provides several fast functions for the analyses in genetics, in particular the calculation of the relationship matrix and other fast algorithms to calculate efficiently this vector and matrix that contain only the values 0,1,2. 
 #Suggests: pedigree, synbreedData
 
-##exportPattern("^[^\\.]")
+exportPattern("^[^\\.]")
 export(
     ##"asremlGinv", "finalCov","genZuchtwert", "GmatrixData", "Gmatrix",
     ##   "multSplit", "SpecificLines",
@@ -21,7 +21,7 @@ export(
     "windower",
     "scanning", "scan.statistics",
 
-    "genomicmatrix", "haplomatrix", "rhaplo",
+    "genomicmatrix", "haplomatrix", "rhaplo", "as.genomicmatrix",
     
     "zeroNthGeno","fillGeno", "copyGeno",
 

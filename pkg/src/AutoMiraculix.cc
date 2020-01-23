@@ -34,7 +34,7 @@ const char // muss in separater Zeile sein
   "unused", "unused", "unused", "unused", "unused",
   "unused", "unused", "unused", "unused", "unused",
   "unused", "unused", "unused", "unused", "unused",
-  "Haplo", "unknown coding"},
+  "Haplo", "unknown"},
   
   *INFO_NAMES[INFO_LAST + 1] = {
   "version", "snps", "individuals", "addr0", "addr1",
